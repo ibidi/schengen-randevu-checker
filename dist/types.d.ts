@@ -4,6 +4,14 @@ export interface VizeMerkezi {
     sehirler: string[];
     telefonlar: Record<string, string>;
 }
+export interface CountryConfig {
+    id: string;
+    name: string;
+    flag: string;
+    provider: string;
+    bookingBaseUrl: string;
+    notes?: string;
+}
 export interface RandevuKontrolSonuc {
     ulke: string;
     sehir?: string;

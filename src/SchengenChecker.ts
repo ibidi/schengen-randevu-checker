@@ -4,9 +4,16 @@ import {
   KontrolOptions, 
   RandevuKontrolSonuc, 
   Randevu,
-  VizeMerkezi 
+  VizeMerkezi,
+  CountryConfig
 } from './types';
-import { SCHENGEN_ULKELERI, VIZE_MERKEZLERI } from './constants';
+import { 
+  SCHENGEN_ULKELERI, 
+  VIZE_MERKEZLERI, 
+  COUNTRY_CONFIGS,
+  getCountryConfig,
+  getCountryConfigByName
+} from './constants';
 
 export class SchengenChecker {
   private sehir: string;
@@ -214,6 +221,48 @@ export class SchengenChecker {
         tip: VIZE_MERKEZLERI[ulke].tip,
         telefon: VIZE_MERKEZLERI[ulke].telefonlar[sehir.toLowerCase()]
       }));
+  }
+
+  /**
+   * Tüm ülke konfigürasyonlarını getir
+   */
+  getAllCountries(): CountryConfig[] {
+    return COUNTRY_CONFIGS;
+  }
+
+  /**
+   * Ülke ID'sine göre konfigürasyon getir
+   */
+  getCountryById(countryId: string): CountryConfig | undefined {
+    return getCountryConfig(countryId);
+  }
+
+  /**
+   * Ülke adına göre konfigürasyon getir
+   */
+  getCountryByName(countryName: string): CountryConfig | undefined {
+    return getCountryConfigByName(countryName);
+  }
+
+  /**
+   * Provider'a göre ülkeleri filtrele
+   */
+  getCountriesByProvider(provider: string): CountryConfig[] {
+    return COUNTRY_CONFIGS.filter(c => 
+      c.provider.toLowerCase().includes(provider.toLowerCase())
+    );
+  }
+
+  /**
+   * Ülke bilgilerini flag ile birlikte listele
+   */
+  listCountriesWithFlags(): Array<{ id: string; name: string; flag: string; provider: string }> {
+    return COUNTRY_CONFIGS.map(c => ({
+      id: c.id,
+      name: c.name,
+      flag: c.flag,
+      provider: c.provider
+    }));
   }
 
   private bekle(ms: number): Promise<void> {

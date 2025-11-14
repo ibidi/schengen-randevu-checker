@@ -1,7 +1,7 @@
 {
   "name": "schengen-randevu-checker",
-  "version": "2.0.0",
-  "description": "Modern TypeScript library for checking Schengen visa appointment availability across 17+ countries. Educational and informational purposes only.",
+  "version": "2.0.1",
+  "description": "Modern TypeScript library for checking Schengen visa appointment availability across 18+ countries. Educational and informational purposes only.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

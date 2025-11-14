@@ -65,7 +65,7 @@ checker.musaitRandevuKontrol('fransa').then(result => {
 });
 ```
 
-## 🌍 Supported Countries (17)
+## 🌍 Supported Countries (18)
 
 | Country | Code | Cities |
 |---------|------|--------|
@@ -86,6 +86,7 @@ checker.musaitRandevuKontrol('fransa').then(result => {
 | 🇱🇹 Lithuania | `litvanya` | Ankara |
 | 🇱🇺 Luxembourg | `luksemburg` | Ankara |
 | 🇱🇻 Latvia | `letonya` | Ankara |
+| 🇵🇱 Poland | `polonya` | Ankara, Istanbul |
 
 ## 📚 API Reference
 
@@ -163,6 +164,50 @@ Filter visa centers by city.
 const ankaraCenters = checker.sehreGoreVizeMerkezleri('ankara');
 ```
 
+#### `getAllCountries(): CountryConfig[]`
+
+Get all country configurations with detailed information.
+
+```typescript
+const countries = checker.getAllCountries();
+// Returns array of all 17 countries with flags, providers, URLs
+```
+
+#### `getCountryById(countryId: string): CountryConfig | undefined`
+
+Get country configuration by ISO code.
+
+```typescript
+const france = checker.getCountryById('fr');
+// { id: 'fr', name: 'Fransa', flag: '🇫🇷', provider: 'TLScontact', ... }
+```
+
+#### `getCountryByName(countryName: string): CountryConfig | undefined`
+
+Get country configuration by name.
+
+```typescript
+const spain = checker.getCountryByName('İspanya');
+```
+
+#### `getCountriesByProvider(provider: string): CountryConfig[]`
+
+Filter countries by visa service provider.
+
+```typescript
+const vfsCountries = checker.getCountriesByProvider('VFS Global');
+// Returns all countries using VFS Global
+```
+
+#### `listCountriesWithFlags(): Array<{ id, name, flag, provider }>`
+
+Get a simplified list of countries with flags.
+
+```typescript
+const list = checker.listCountriesWithFlags();
+// [{ id: 'fr', name: 'Fransa', flag: '🇫🇷', provider: 'TLScontact' }, ...]
+```
+
 ## 🔧 TypeScript Types
 
 ```typescript
@@ -184,6 +229,15 @@ interface VizeMerkezi {
   tip: 'vfs-global' | 'bls-international' | 'konsolosluk';
   sehirler: string[];
   telefonlar: Record<string, string>;
+}
+
+interface CountryConfig {
+  id: string;              // ISO country code (e.g., 'fr', 'de')
+  name: string;            // Country name in Turkish
+  flag: string;            // Country flag emoji
+  provider: string;        // Visa service provider
+  bookingBaseUrl: string;  // Base URL for appointments
+  notes?: string;          // Additional information
 }
 ```
 

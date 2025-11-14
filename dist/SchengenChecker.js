@@ -182,6 +182,41 @@ class SchengenChecker {
             telefon: constants_1.VIZE_MERKEZLERI[ulke].telefonlar[sehir.toLowerCase()]
         }));
     }
+    /**
+     * Tüm ülke konfigürasyonlarını getir
+     */
+    getAllCountries() {
+        return constants_1.COUNTRY_CONFIGS;
+    }
+    /**
+     * Ülke ID'sine göre konfigürasyon getir
+     */
+    getCountryById(countryId) {
+        return (0, constants_1.getCountryConfig)(countryId);
+    }
+    /**
+     * Ülke adına göre konfigürasyon getir
+     */
+    getCountryByName(countryName) {
+        return (0, constants_1.getCountryConfigByName)(countryName);
+    }
+    /**
+     * Provider'a göre ülkeleri filtrele
+     */
+    getCountriesByProvider(provider) {
+        return constants_1.COUNTRY_CONFIGS.filter(c => c.provider.toLowerCase().includes(provider.toLowerCase()));
+    }
+    /**
+     * Ülke bilgilerini flag ile birlikte listele
+     */
+    listCountriesWithFlags() {
+        return constants_1.COUNTRY_CONFIGS.map(c => ({
+            id: c.id,
+            name: c.name,
+            flag: c.flag,
+            provider: c.provider
+        }));
+    }
     bekle(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
