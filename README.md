@@ -476,9 +476,9 @@ MIT © [İhsan Baki Doğan](https://github.com/ibidi)
 
 ## 🔗 Links
 
-- **GitHub:** https://github.com/ibidi/schengen-randevu-checker
+- **GitHub:** https://github.com/ibidi/schengen-visa
 - **npm:** https://www.npmjs.com/package/schengen-randevu-checker
-- **Issues:** https://github.com/ibidi/schengen-randevu-checker/issues
+- **Issues:** https://github.com/ibidi/schengen-visa/issues
 
 ## � C hangelog
 

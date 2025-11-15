@@ -132,7 +132,7 @@ async function main() {
 
   console.log('\n\n✨ All features demonstrated successfully!');
   console.log('\n📦 Install: npm install schengen-randevu-checker@2.1.0');
-  console.log('📚 Docs: https://github.com/ibidi/schengen-randevu-checker');
+  console.log('📚 Docs: https://github.com/ibidi/schengen-visa');
 }
 
 main().catch(console.error);

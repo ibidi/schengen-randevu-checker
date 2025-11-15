@@ -8,8 +8,8 @@ Thank you for your interest in contributing! 🎉
 
 ```bash
 # Fork the repo on GitHub, then:
-git clone https://github.com/ibidi/schengen-randevu-checker.git
-cd schengen-randevu-checker
+git clone https://github.com/ibidi/schengen-visa.git
+cd schengen-visa
 ```
 
 ### 2. Install Dependencies
